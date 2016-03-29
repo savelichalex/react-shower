@@ -1,0 +1,8 @@
+.shower.full .slide.active {
+  margin: 0;
+  visibility: visible;
+}
+
+body {
+  background: black;
+}
