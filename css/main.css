@@ -6,3 +6,19 @@
 body {
   background: black;
 }
+
+html, body {
+  height: 100%;
+}
+
+.shower.full .progress {
+  transform: translateZ(0);
+}
+
+#app {
+  min-height: 100%;
+}
+
+.shower.list {
+  min-height: 100%;
+}

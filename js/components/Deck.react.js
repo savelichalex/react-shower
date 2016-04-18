@@ -12,23 +12,25 @@ function getTransformScale(props) {
     return 'scale(1)';
   }
   var denominator = Math.max(
-    768 / window.innerWidth,
-    768 / window.innerHeight
+    1024 / window.innerWidth,
+    640 / window.innerHeight
   );
 
-  return 'scale(' + (1 / denominator) + ')';
+  return 'scale(' + (1/denominator) + ')';
 }
 
+function getCount(children) {
+  return children
+    .filter(el => el.type !== 'header').length;
+}
 
 class Deck extends Component {
 
   onKeyPress(ev) {
     const dispatch = this.props.dispatch;
     const slide = parseInt(this.props.slide);
-    const count = this.props.children
-      .filter(el => el.type !== 'header').length;
+    const count = getCount(this.props.children);
     const wholeLength = this.props.children.length;
-
     if (PREV_KEYS.indexOf(ev.which) >= 0 && slide - 1 >= wholeLength - count) {
       dispatch(changeActiveSlide(slide - 1));
     }
@@ -47,12 +49,15 @@ class Deck extends Component {
   }
 
   componentDidMount() {
-    this.listener = this.onKeyPress.bind(this)
+    this.listener = this.onKeyPress.bind(this);
+    this.resizeListener = this.forceUpdate.bind(this, function() {});
     document.addEventListener('keydown', this.listener);
+    window.addEventListener('resize', this.resizeListener);
   }
 
   compinentDidUnmount() {
     document.removeEventListener('keydown', this.listener);
+    window.removeEventListener('resize', this.resizeListener);
   }
 
   render() {
@@ -68,9 +73,16 @@ class Deck extends Component {
       })
     );
 
+    var progress = (this.props.slide - 1)/(getCount(this.props.children) - 1) * 100;
+
     return (
       <div style={{transform: getTransformScale(this.props)}} className={`shower ${this.props.mode}`}>
         {children}
+        <div className="progress"
+          role="progressbar" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow={progress}
+          aria-valuetext={"Slideshow Progress: " + progress}
+          style={{"width": progress + "%"}}></div>
       </div>
     );
   }

@@ -1,139 +1,187 @@
 import React, { Component } from 'react';
 import Deck from "./components/Deck.react";
 import Slide from "./components/Slide.react";
+import Code from "./components/Code.react";
+
+import mainBakckground from "../img/main.png";
+import vkLogo from "../img/vk.svg";
+import paperLogo from "../img/paper.svg";
+import superman from "../img/superman.jpg";
+import reactivePlane from "../img/shutterstock_300080930.jpg";
+import react from "../img/react.png";
+import boxes from "../img/boxes.jpg";
+import kittens from "../img/kittens.jpg";
+import hulk from "../img/halk.jpg";
+
+import reactCode from "raw!../code/react_example.js";
+import pureComponent from "raw!../code/pure_component.js";
+import promiseExample from "raw!../code/promise.js";
+import promise2Example from "raw!../code/promise_composition.js";
+import materializedEffects from "raw!../code/materializedEffects.js"
+
+
+import {} from "../css/theme.css";
+import {} from "../css/prism.css";
+
+const TOPIC = 'Функциональное реактивное программирование глазами frontend-разработчика';
+const SPEAKER = 'Вячеслав Шебанов';
 
 export default class Presentation extends Component {
 
   render() {
-    return <Deck>
-      <header className="caption">
-      <h1>Shower Presentation Engine</h1>
-      <p>Yours Truly, Famous Inc.</p>
-    </header>
-    <Slide>
-      <h2>Shower Presentation Engine</h2>
-      <p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-      <img src="http://shwr.me/pictures/cover.jpg" alt="" className="cover" />
-        To apply styles to the certain slides
-        set slide ID to get needed elements
-    </Slide>
-    <Slide>
-      <h2>Shower key features</h2>
-      <ol>
-        <li>Built on HTML, CSS and vanilla JavaScript</li>
-        <li>Works in all modern browsers</li>
-        <li>Themes are separated from engine</li>
-        <li>Modular and extensible</li>
-        <li>Fully keyboard accessible</li>
-        <li>Printable to PDF</li>
-      </ol>
-      <p className="note">Shower [ʃəuə] noun. A person or thing that shows.</p>
-    </Slide>
-    <Slide>
-      <h2>Plain text on your slides</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-    </Slide>
-    <Slide>
-      <h2>Two columns if you like</h2>
-      <p className="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-    </Slide>
-    <Slide>
-      <h2>All kind of lists</h2>
-      <ol>
-        <li>Simple lists are marked with bullets</li>
-        <li>Ordered lists begin with a number</li>
-        <li>You can even nest lists one inside another
+    return (
+      <Deck>
+
+        <header className="caption">
+          <h1>{TOPIC}</h1>
+          <p>{SPEAKER}</p>
+        </header>
+
+        <Slide className="cover-slide">
+          <h2>{TOPIC}</h2>
+          <p>{SPEAKER}</p>
+          <img src={mainBakckground} alt="" className="cover" />
+        </Slide>
+
+        <Slide>
+          <h2>Привет, меня зовут Слава</h2>
           <ul>
-            <li>Or mix their types</li>
-            <li>But do not go too far</li>
-            <li>Otherwise audience will be bored</li>
+            <li className="sparse-item">
+              <img className="work-logo" src={vkLogo} /> Разработчик «ВКонтакте»
+              (<a href="https://vk.com" target="_blank">vk.com</a>)
+            </li>
+            <li className="sparse-item">
+              <img className="work-logo work-logo_paper" src={paperLogo} /> Сооснователь интернет-газеты «Бумага»
+              (<a href="http://paperpaper.ru" target="_blank">paperpaper.ru</a>)
+            </li>
           </ul>
-        </li>
-        <li>Look, seven rows exactly!</li>
-      </ol>
-    </Slide>
-    <Slide>
-      <h2>Serious citations</h2>
-      <figure>
-        <blockquote>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-        </blockquote>
-        <figcaption>Marcus Tullius Cicero</figcaption>
-      </figure>
-    </Slide>
-    <Slide>
-      <h2>Code samples</h2>
-      <pre>			<code>&lt;!DOCTYPE html&gt;</code>
-        <code className="mark">&lt;html lang="en"&gt;</code>
-        <code><mark>&lt;head&gt;</mark> <span className="comment">&lt;!--Comment--&gt;</span></code>
-        <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-        <code>    &lt;meta charset="<mark className="important">UTF-8</mark>"&gt;</code>
-        <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-        <code><mark>&lt;/head&gt;</mark></code>
-      </pre>
-    </Slide>
-    <Slide>
-      <h2>Even tables</h2>
-      <table>
-      <tbody><tr>
-        <th scope="col">Locavore</th>
-        <th>Umami</th>
-        <th>Helvetica</th>
-        <th>Vegan</th>
-      </tr>
-      <tr>
-        <th scope="row">Fingerstache</th>
-        <td>Kale</td>
-        <td>Chips</td>
-        <td>Keytar</td>
-      </tr>
-      <tr>
-        <th scope="row">Sriracha</th>
-        <td>Gluten-free</td>
-        <td>Ennui</td>
-        <td>Keffiyeh</td>
-      </tr>
-      <tr>
-        <th scope="row">Thundercats</th>
-        <td>Jean</td>
-        <td>Shorts</td>
-        <td>Biodiesel</td>
-      </tr>
-      <tr>
-        <th scope="row">Terry</th>
-        <td>Richardson</td>
-        <td>Swag</td>
-        <td>Blog</td>
-      </tr>
-      </tbody></table>
-      <p>It’s good to have information organized.</p>
-    </Slide>
-    <Slide>
-      <h2>Pictures</h2>
-      <img src="http://shwr.me/pictures/picture.jpg" alt="" className="cover" />
-    </Slide>
-    <Slide>
-      <h2 className="shout shrink">You&nbsp;can&nbsp;even shout&nbsp;this&nbsp;way</h2>
-    </Slide>
-    <Slide>
-      <h2>Inner navigation</h2>
-      <ol>
-        <li>Lets you reveal list items one by one</li>
-        <li className="next">To keep some key points</li>
-        <li className="next">In secret from audience</li>
-        <li className="next">But it will work only once</li>
-        <li className="next">Nobody wants to see the same joke twice</li>
-      </ol>
-    </Slide>
-    <Slide>
-      <h2>Привет</h2>
-    </Slide>
-    <Slide>
-      <h2 className="shout">
-        <img src="http://shwr.me/pictures/logo.svg" alt="Shower logo" />
-        <a href="https://github.com/shower/shower">See more on GitHub</a>
-      </h2>
-    </Slide>
-    </Deck>
+        </Slide>
+
+        <Slide>
+          <h2 className="shout smaller">Функциональное Реактивное <br/> Программирование</h2>
+        </Slide>
+
+        <Slide>
+          <h2 className="shout smaller">Зачем мне это?</h2>
+        </Slide>
+
+        <Slide>
+          <h2>Какие парадигмы мы используем?</h2>
+          <ol>
+            <li>Императивное программирование</li>
+            <li>Конкуррентное программирование</li>
+            <li>Программирование с зависимымы вычислениями</li>
+          </ol>
+        </Slide>
+
+        <Slide>
+          <h2>Разработка интерфейса это сложно</h2>
+          <figure>
+            <blockquote><p>I dont think our species intelligent enough to do dependable concurrent imperative programming.</p></blockquote>
+            <figcaption>Conal Elliot, “The Essence of FRP”, 2015</figcaption>
+          </figure>
+        </Slide>
+
+        <Slide className="black">
+          <img src={superman} alt="" className="cover" />
+        </Slide>
+
+        <Slide>
+          <h2 className="shout smaller">MVC</h2>
+        </Slide>
+        <Slide>
+          <h2 className="shout smaller">
+            STOP <span style={{textDecoration: 'line-through'}}>MVC</span>
+          </h2>
+        </Slide>
+        <Slide>
+          <h2 className="shout">React</h2>
+        </Slide>
+        <Slide>
+          <div className="place left side-image">
+            <img src={reactivePlane} alt="" />
+            <p>Реактивный</p>
+          </div>
+          <div className="place right side-image">
+            <img src={react} alt="" />
+            <p>Не реактивный</p>
+          </div>
+        </Slide>
+        <Slide className="black full">
+          <Code code={reactCode}/>
+        </Slide>
+        <Slide className="">
+          <h2>Чистая функция</h2>
+          <Code code={pureComponent}/>
+        </Slide>
+        <Slide>
+          <h2>Композиция чистых функций</h2>
+          <div className="top-bottom">
+            <img src={boxes} alt="" />
+          </div>
+        </Slide>
+        <Slide>
+          <h2>Композиция обычных функций</h2>
+          <div className="top-bottom">
+            <img src={kittens} alt="" />
+          </div>
+        </Slide>
+        <Slide>
+          <h2>Ограничения чистых функций</h2>
+          <ol>
+            <li>Локальность</li>
+            <li>Неизменямость данных</li>
+            <li>Отсутствие операций ввода/вывода</li>
+          </ol>
+        </Slide>
+        <Slide>
+          <h2 className="shout smaller">Острова <mark>«чистого»</mark> кода в океане императивного</h2>
+        </Slide>
+        <Slide>
+          <h2>Еще функционального подхода?</h2>
+          <ol>
+            <li>Система типов (Flow, TypeScript)</li>
+            <li>Эффективные неизменямые типы данных (Immutable.js, mori)</li>
+          </ol>
+        </Slide>
+        <Slide>
+          <h2>Не только React</h2>
+          <ul>
+            <li>Angular 2</li>
+            <li>Ember.js 2</li>
+            <li>И не только веб</li>
+          </ul>
+        </Slide>
+        <Slide>
+          <h2 className="shout smaller">Реактивное программирование</h2>
+        </Slide>
+        <Slide>
+          <h2>Promise</h2>
+          <Code code={promiseExample}/>
+        </Slide>
+        <Slide>
+          <h2>За что мы его любим?</h2>
+          <ol>
+            <li>Хорошо комбинируется с другими promise-значениями</li>
+            <li>Коллбэк вызывается всегда один раз</li>
+            <li>Помогает избежать адской пирамиды коллбэков</li>
+          </ol>
+        </Slide>
+        <Slide>
+          <h2>Композиция Promise</h2>
+          <Code code={promise2Example} />
+        </Slide>
+        <Slide>
+          <h2>Материализация побочных эффектов</h2>
+          <Code code={materializedEffects} lang="haskell"/>
+        </Slide>
+        <Slide>
+          <h2 className="shout"><a href="https://gist.github.com/briancavalier/3296186">Монада</a></h2>
+        </Slide>
+        <Slide className="black">
+          <img src={hulk} className="cover" alt="" />
+        </Slide>
+      </Deck>
+    );
   }
 }
