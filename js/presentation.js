@@ -12,12 +12,18 @@ import react from "../img/react.png";
 import boxes from "../img/boxes.jpg";
 import kittens from "../img/kittens.jpg";
 import hulk from "../img/halk.jpg";
+import promiseImg from "../img/promise.png";
+import promise2Img from "../img/promise2.png";
+import promise3Img from "../img/promise3.png";
+import observable from "../img/observable.png";
+import observableFlat from "../img/observable-flat.png";
 
 import reactCode from "raw!../code/react_example.js";
 import pureComponent from "raw!../code/pure_component.js";
 import promiseExample from "raw!../code/promise.js";
 import promise2Example from "raw!../code/promise_composition.js";
 import materializedEffects from "raw!../code/materializedEffects.js"
+import bacon from "raw!../code/bacon.js";
 
 
 import {} from "../css/theme.css";
@@ -180,6 +186,36 @@ export default class Presentation extends Component {
         </Slide>
         <Slide className="black">
           <img src={hulk} className="cover" alt="" />
+        </Slide>
+        <Slide className="center">
+          <img src={promiseImg} alt="" />
+        </Slide>
+        <Slide className="center">
+          <img src={promise2Img} alt="" />
+        </Slide>
+        <Slide className="center">
+          <img src={promise3Img} alt="" />
+        </Slide>
+        <Slide>
+          <h2>Observable</h2>
+          <ol>
+            <li>Promise — одно значение, Observable — много</li>
+            <li>Можно отменять подписку</li>
+            <li>Observable — конечный</li>
+          </ol>
+        </Slide>
+        <Slide>
+          <h2>Bacon.js</h2>
+          <Code code={bacon}/>
+        </Slide>
+        <Slide className="center full white">
+          <img src={observable} alt="" />
+        </Slide>
+        <Slide className="center full white">
+          <img src={observableFlat} alt="" />
+        </Slide>
+        <Slide>
+          <h2 className="shout smaller"><a href="https://github.com/Reactive-Extensions" target="_blank">ReactiveExtension</a></h2>
         </Slide>
       </Deck>
     );
