@@ -65,6 +65,7 @@
     "url": "git://github.com/mxstbr/react-boilerplate.git"
   },
   "scripts": {
+    "simple": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --colors -p",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-core/register --recursive",
     "test:watch": "npm test -- --watch",
