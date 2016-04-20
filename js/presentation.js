@@ -178,6 +178,9 @@ export default class Presentation extends Component {
           <Code code={promise2Example} />
         </Slide>
         <Slide>
+          <h2 className="shout">Граф</h2>
+        </Slide>
+        <Slide>
           <h2>Материализация побочных эффектов</h2>
           <Code code={materializedEffects} lang="haskell"/>
         </Slide>
@@ -216,6 +219,15 @@ export default class Presentation extends Component {
         </Slide>
         <Slide>
           <h2 className="shout smaller"><a href="https://github.com/Reactive-Extensions" target="_blank">ReactiveExtension</a></h2>
+        </Slide>
+        <Slide>
+          <h2>Какие проблемы решает?</h2>
+          <ol>
+            <li>Прозрачная асинхронность</li>
+            <li>Упрощает работу с IO</li>
+            <li>Модульность</li>
+            <li>Декларативность</li>
+          </ol>
         </Slide>
       </Deck>
     );
