@@ -37,8 +37,7 @@ import rootReducer from './reducers/rootReducer';
 
 const routes = <Router history={createHistory()}>
   <Route component={App}>
-    <Route path="/" component={Presentation} />
-    <Route path="*" component={NotFoundPage} />
+    <Route path="*" component={Presentation} />
   </Route>
 </Router>;
 
