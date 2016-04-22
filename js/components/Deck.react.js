@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-;import {changeActiveSlide, changeMode} from "../actions/AppActions";
+import {changeActiveSlide, changeMode} from "../actions/AppActions";
 import { connect } from 'react-redux';
 
 const PREV_KEYS = [37, 38];
