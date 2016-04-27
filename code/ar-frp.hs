@@ -1,0 +1,1 @@
+SF α β = Signal α → Signal β

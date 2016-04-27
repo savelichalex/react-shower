@@ -4,7 +4,7 @@
 }
 
 .slide.cover-slide {
-  background: black;
+  background: white;
 }
 
 .slide.cover-slide::after {
@@ -16,7 +16,7 @@
 }
 
 .slide.cover-slide, .slide.cover-slide h2 {
-  color: white;
+  color: black;
 }
 
 
@@ -33,6 +33,9 @@
   max-height: 100%;
 }
 
+.slide.center .intro-img {
+  max-height: 75%;
+}
 
 .work-logo {
   height: 80px;
