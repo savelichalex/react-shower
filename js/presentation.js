@@ -7,6 +7,12 @@ import {} from "../css/theme.css";
 import {} from "../css/prism.css";
 
 import frpIntro1 from '../img/frp-intro-1.png';
+import bug1 from '../img/bug-1.png';
+import bug2 from '../img/bug-2.png';
+import bug3 from '../img/bug-3.png';
+import bug4 from '../img/bug-4.png';
+import bug5 from '../img/bug-5.png';
+import bug6 from '../img/bug-6.png';
 import frpIntro2 from '../img/frp-intro-2.png';
 import frpIntro3 from '../img/frp-intro-3.png';
 import frpIntro4 from '../img/frp-intro-4.png';
@@ -14,6 +20,9 @@ import frpIntro4 from '../img/frp-intro-4.png';
 import cFrp from 'raw!../code/classical-frp.hs';
 import rtFrp from 'raw!../code/rt-frp.hs';
 import arFrp from 'raw!../code/ar-frp.hs';
+import justCol from 'raw!../code/just-col.cljs';
+import justEs from 'raw!../code/just-es.cljs';
+import gameMove from 'raw!../code/game-move.cljs';
 
 const TOPIC = 'Введение в FRP которое вы пропустили';
 const SPEAKER = 'Савельев Алексей';
@@ -58,84 +67,46 @@ export default class Presentation extends Component {
 				</Slide>
 
 				<Slide>
-					<h3>Observer паттерн</h3>
+					<h2>Observer паттерн</h2>
 				</Slide>
 
 				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
+					<h2>Observer паттерн</h2>
+					<h3>Существует как минимум 6 ошибок связанных с callbacks</h3>
 				</Slide>
 
-				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
-					<ol>
-						<li>Непредсказуемый порядок</li>
-					</ol>
+				<Slide className="center">
+					<h2>Непредсказуемый порядок</h2>
+					<img src={bug1} alt="" className="intro-img" />
 				</Slide>
 
-				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
-					<ol>
-						<li>Непредсказуемый порядок</li>
-						<li>Теряется первое событие</li>
-					</ol>
+				<Slide className="center">
+					<h2>Теряется первое событие</h2>
+					<img src={bug2} alt="" className="intro-img" />
 				</Slide>
 
-				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
-					<ol>
-						<li>Непредсказуемый порядок</li>
-						<li>Теряется первое событие</li>
-						<li>Беспорядочное состояние</li>
-					</ol>
+				<Slide className="center">
+					<h2>Беспорядочное состояние</h2>
+					<img src={bug3} alt="" className="intro-img" />
 				</Slide>
 
-				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
-					<ol>
-						<li>Непредсказуемый порядок</li>
-						<li>Теряется первое событие</li>
-						<li>Беспорядочное состояние</li>
-						<li>Потоко-небезопасно</li>
-					</ol>
+				<Slide className="center">
+					<h2>Потоко-небезопасно</h2>
+					<img src={bug4} alt="" className="intro-img" />
 				</Slide>
 
-				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
-					<ol>
-						<li>Непредсказуемый порядок</li>
-						<li>Теряется первое событие</li>
-						<li>Беспорядочное состояние</li>
-						<li>Потоко-небезопасно</li>
-						<li>Утечки памяти</li>
-					</ol>
+				<Slide className="center">
+					<h2>Утечки памяти</h2>
+					<img src={bug5} alt="" className="intro-img" />
 				</Slide>
 
-				<Slide>
-					<h3>Observer паттерн</h3>
-					<h3>Существует как минимум 6 ошибок связанных с callbacks:</h3>
-					<ol>
-						<li>Непредсказуемый порядок</li>
-						<li>Теряется первое событие</li>
-						<li>Беспорядочное состояние</li>
-						<li>Потоко-небезопасно</li>
-						<li>Утечки памяти</li>
-						<li>Случайная рекурсия</li>
-					</ol>
+				<Slide className="center">
+					<h2>Случайная рекурсия</h2>
+					<img src={bug6} alt="" className="intro-img" />
 				</Slide>
 
 				<Slide className="center">
 					<h2>FRP - один из способов решения проблемы</h2>
-				</Slide>
-
-				<Slide className="center">
-					<h2>FRP - один из способов решения проблемы</h2>
-					<p>Попробуем разобраться что же это такое</p>
 				</Slide>
 
 				<Slide className="center">
@@ -257,6 +228,52 @@ export default class Presentation extends Component {
 						<span style={{float: 'right'}}>Haskell Wiki</span>
 					</div>
 				</Slide>
+
+				<Slide className="center">
+					<h2>Рассмотрим пример</h2>
+					<Code lang="clojure" code={justCol} />
+				</Slide>
+
+				<Slide className="center">
+					<h2>Похожий пример с использованием reagi</h2>
+					<Code lang="clojure" code={justEs} />
+				</Slide>
+
+				<Slide className="center">
+					<h2>Наглядно на marble diagram</h2>
+				</Slide>
+
+				<Slide className="center">
+					<h2 style={{marginTop: '-30px'}}>Обработка движений в играх</h2>
+					<Code lang="clojure" code={gameMove} />
+				</Slide>
+
+				<Slide>
+					<h2>Комбинаторы</h2>
+					<ul>
+						<li>merge</li>
+						<li>zip</li>
+						<li>flatMap</li>
+					</ul>
+				</Slide>
+
+				<Slide>
+					<h2>Merge</h2>
+				</Slide>
+
+				<Slide>
+					<h2>Zip</h2>
+				</Slide>
+
+				<Slide>
+					<h2>FlatMap</h2>
+				</Slide>
+
+				<Slide>
+					<h2>Data-flow programming</h2>
+				</Slide>
+
+				
 			</Deck>
 		);
 	}
