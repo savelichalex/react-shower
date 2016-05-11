@@ -16,6 +16,13 @@ import bug6 from '../img/bug-6.png';
 import frpIntro2 from '../img/frp-intro-2.png';
 import frpIntro3 from '../img/frp-intro-3.png';
 import frpIntro4 from '../img/frp-intro-4.png';
+import mapMb from '../img/map-mb.png';
+import filterMb from '../img/filter-mb.png';
+import mergeMb from '../img/merge-mb.png';
+import zipMb from '../img/zip-mb.png';
+import flatMapMb from '../img/flatMap-mb.png';
+import dataFlow from '../img/data-flow.png';
+import everythingStream from '../img/streams.jpeg';
 
 import cFrp from 'raw!../code/classical-frp.hs';
 import rtFrp from 'raw!../code/rt-frp.hs';
@@ -240,7 +247,13 @@ export default class Presentation extends Component {
 				</Slide>
 
 				<Slide className="center">
-					<h2>Наглядно на marble diagram</h2>
+					<h2>Map</h2>
+					<img src={mapMb} alt="" />
+				</Slide>
+
+				<Slide className="center">
+					<h2>Filter</h2>
+					<img src={filterMb} alt="" />
 				</Slide>
 
 				<Slide className="center">
@@ -257,23 +270,43 @@ export default class Presentation extends Component {
 					</ul>
 				</Slide>
 
-				<Slide>
+				<Slide className="center">
 					<h2>Merge</h2>
+					<img src={mergeMb} alt="" />
 				</Slide>
 
-				<Slide>
+				<Slide className="center">
 					<h2>Zip</h2>
+					<img src={zipMb} alt="" />
 				</Slide>
 
-				<Slide>
+				<Slide className="center">
 					<h2>FlatMap</h2>
+					<img src={flatMapMb} alt="" />
+				</Slide>
+
+				<Slide className="center">
+					<h2>Data-flow programming</h2>
+					<img src={dataFlow} alt="" />
+				</Slide>
+
+				<Slide className="center">
+					<img src={everythingStream} alt="" />
 				</Slide>
 
 				<Slide>
-					<h2>Data-flow programming</h2>
+					<h2>Список литературы</h2>
+					<ol>
+						<li>Functional Reactive Programming - Stephen Blackheath, Anthony Jones</li>
+						<li>Clojure Reactive Programming - Leonardo Borges</li>
+						<li>Elm: Concurrent FRP for Functional GUIs - Evan Czaplicki</li>
+						<li>The introduction to Reactive Programming you've been missing - Andre Staltz</li>
+						<li>Functional Reactive Animation - Paul Hudak, Conal Elliott</li>
+						<li>"Controlling Time and Space: understanding the many formulations of FRP"
+							by Evan Czaplicki <a href="https://www.youtube.com/watch?v=Agu6jipKfYw">
+								https://www.youtube.com/watch?v=Agu6jipKfYw</a></li>
+					</ol>
 				</Slide>
-
-				
 			</Deck>
 		);
 	}
